@@ -1,7 +1,7 @@
 models:
   Empleado:
     fake:
-      _count: 30
+      _count: 150
       nombre: firstName
       apellido: lastName
       correo: email
