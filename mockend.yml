@@ -6,24 +6,12 @@ models:
       apellido: lastName
       correo: email
       telefono: phone
-      # Prueba esta sintaxis con corchetes en una sola línea
-      empresa: { oneOfString: ["Tecnología Global", "Innova Soft", "Ciber Dinámica"] }
+      # Usamos loremWords para evitar el bug de oneOfString
+      empresa: { loremWords: [1, 2] }
+      departamento: { loremWords: [1, 1] }
+      nacionalidad: { loremWords: [1, 1] }
+      direccion: { loremWords: [2, 4] }
       salario: { int: [1750, 3500] }
-      empleado_desde: { dateTime: ["2018-01-01T00:00:00Z", "2026-01-01T00:00:00Z"] }
+      empleado_desde: { dateTime: [2018-01-01T00:00:00Z, 2026-01-01T00:00:00Z] }
       foto: { imageURL: [150, 150] }
-      # O esta otra sintaxis de lista clásica si la anterior falla
-      nacionalidad:
-        oneOfString:
-          - Costarricense
-          - Colombiana
-          - Española
-          - Panameña
-      departamento:
-        oneOfString:
-          - Ventas
-          - Ingeniería
-          - Soporte
-          - Gerencia
-          - Diseño
-      direccion: { loremWords: [3, 5] }
       desempeño: { float: [1.0, 5.0] }
