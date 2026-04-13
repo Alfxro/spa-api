@@ -7,11 +7,11 @@ models:
       correo: email
       telefono: phone
       # Usamos loremWords para evitar el bug de oneOfString
-      empresa: { loremWords: [1, 2] }
-      departamento: { loremWords: [1, 1] }
-      nacionalidad: { loremWords: [1, 1] }
-      direccion: { loremWords: [2, 4] }
+      empresa: { loremWords: [4, 6] }
+      departamento: { loremWords: [3, 5] }
+      nacionalidad: { loremWords: [3, 5] }
+      direccion: { loremWords: [6, 10] }
       salario: { int: [1750, 3500] }
       empleado_desde: { dateTime: [2018-01-01T00:00:00Z, 2026-01-01T00:00:00Z] }
       foto: { imageURL: [150, 150] }
-      desempeño: { float: [1.0, 5.0] }
+      desempeño: { float: [0, 5.0] }
