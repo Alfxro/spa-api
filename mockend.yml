@@ -1,5 +1,5 @@
  models:
-  empleado:
+  Empleado:
     fake:
       _count: 100
       nombre: firstName
