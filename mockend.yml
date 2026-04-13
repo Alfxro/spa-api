@@ -2,25 +2,28 @@ models:
   Empleado:
     fake:
       _count: 30
-      id: id
       nombre: firstName
       apellido: lastName
       correo: email
       telefono: phone
-      # Aquí definimos las opciones para que no salga "unknown generator"
-      empresa: 
-        oneOfString: [ "Tecnología Global", "Innova Soft", "Ciber Dinámica", "Soluciones CR" ]
-      salario: 
-        int: [1750, 3500]
-      empleado_desde: 
-        dateTime: [2018-01-01T00:00:00Z, 2026-01-01T00:00:00Z]
-      foto: 
-        imageURL: [150, 150]
-      direccion: 
-        oneOfString: [ "San José, Escazú", "Heredia, Belén", "Alajuela, Grecia", "Cartago, Paraíso", "Alajuela, San Ramón" ]
-      nacionalidad: 
-        oneOfString: [ "Costarricense", "Nicaragüense", "Panameña", "Colombiana", "Española" ]
-      departamento: 
-        oneOfString: [ "Ventas", "Ingeniería", "Soporte", "Gerencia", "Marketing", "Recursos Humanos", "Diseño" ]
-      desempeño: 
-        float: [1.0, 5.0]
+      # Prueba esta sintaxis con corchetes en una sola línea
+      empresa: { oneOfString: ["Tecnología Global", "Innova Soft", "Ciber Dinámica"] }
+      salario: { int: [1750, 3500] }
+      empleado_desde: { dateTime: ["2018-01-01T00:00:00Z", "2026-01-01T00:00:00Z"] }
+      foto: { imageURL: [150, 150] }
+      # O esta otra sintaxis de lista clásica si la anterior falla
+      nacionalidad:
+        oneOfString:
+          - Costarricense
+          - Colombiana
+          - Española
+          - Panameña
+      departamento:
+        oneOfString:
+          - Ventas
+          - Ingeniería
+          - Soporte
+          - Gerencia
+          - Diseño
+      direccion: { loremWords: [3, 5] }
+      desempeño: { float: [1.0, 5.0] }
