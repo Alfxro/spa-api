@@ -1,26 +1,16 @@
-models:
+ models:
   empleado:
     fake:
-      _count: 30
-      id: id
+      _count: 100
       nombre: firstName
       apellido: lastName
       correo: email
       telefono: phone
-      # Aquí definimos las opciones para que no salga "unknown generator"
-      empresa: 
-        oneOfString: [ "Tecnología Global", "Innova Soft", "Ciber Dinámica", "Soluciones CR" ]
-      salario: 
-        int: [1750, 3500]
-      empleado_desde: 
-        dateTime: [2018-01-01T00:00:00Z, 2026-01-01T00:00:00Z]
-      foto: 
-        imageURL: [150, 150]
-      direccion: 
-        oneOfString: [ "San José, Escazú", "Heredia, Belén", "Alajuela, Grecia", "Cartago, Paraíso", "Alajuela, San Ramón" ]
-      nacionalidad: 
-        oneOfString: [ "Costarricense", "Nicaragüense", "Panameña", "Colombiana", "Española" ]
-      departamento: 
-        oneOfString: [ "Ventas", "Ingeniería", "Soporte", "Gerencia", "Marketing", "Recursos Humanos", "Diseño" ]
-      desempeño: 
-        float: [1.0, 5.0]
+      empresa: { oneOfString: ["Tecnología Global", "Innova Soft", "Ciber Dinámica", "Soluciones CR"] }
+      salario: { int: [1750, 3500] }
+      empleado_desde: { dateTime: [2018-01-01T00:00:00Z, 2026-01-01T00:00:00Z] }
+      foto: { imageURL: [150, 150] }
+      direccion: { loremWords: [3, 6] }
+      nacionalidad: { oneOfString: ["Costarricense", "Nicaragüense", "Panameña", "Colombiana", "Española"] }
+      departamento: { oneOfString: ["Ventas", "Ingeniería", "Soporte", "Gerencia", "Marketing", "Recursos Humanos", "Diseño"] }
+      desempeño: { float: [1.0, 5.0] }
