@@ -1,17 +1,65 @@
 models:
-  Empleado:
+  User:
+    hasMany: [Recipe, Comment, Rating, RecipeFavorite]
+    fake:
+      _count: 50
+      email: email
+      username: username
+      password: password
+      avatar: { imageURL: [150, 150] }
+
+  Country:
+    hasMany: [Recipe]
+    fake:
+      _count: 20
+      name: country
+      flag_url: { imageURL: [64, 48] }
+      iso_alpha3: countryCode
+
+  Recipe:
+    belongsTo: [User, Country]
+    hasMany: [Comment, Rating, Step, RecipeIngredient, RecipeFavorite]
     fake:
       _count: 100
-      nombre: firstName
-      apellido: lastName
-      correo: email
-      telefono: phone
-      # Usamos loremWords para evitar el bug de oneOfString
-      empresa: { loremWords: [10, 16] }
-      departamento: { loremWords: [3, 5] }
-      nacionalidad: { loremWords: [10, 15] }
-      direccion: { loremWords: [15, 25] }
-      salario: { int: [1150, 5500] }
-      empleado_desde: { dateTime: [2018-01-01T00:00:00Z, 2026-01-01T00:00:00Z] }
-      foto: { imageURL: [150, 150] }
-      desempeño: { float: [0, 5.0] }
+      name: phrase
+      description: paragraph
+      photo_url: { imageURL: [600, 400] }
+
+  Comment:
+    belongsTo: [User, Recipe]
+    fake:
+      _count: 200
+      title: sentence
+      description: paragraph
+
+  Rating:
+    belongsTo: [User, Recipe]
+    fake:
+      _count: 300
+      value: { int: [1, 5] }
+
+  Step:
+    belongsTo: [Recipe]
+    fake:
+      _count: 400
+      name: phrase
+      description: sentence
+      order: { int: [1, 10] }
+
+  Ingredient:
+    hasMany: [RecipeIngredient]
+    fake:
+      _count: 100
+      name: word
+
+  RecipeIngredient:
+    belongsTo: [Recipe, Ingredient]
+    fake:
+      _count: 500
+      amount: phrase
+
+  RecipeFavorite:
+    belongsTo: [Recipe, User]
+    fake:
+      _count: 150
+      created_at: { dateTime: [2024-01-01T00:00:00Z, 2026-06-13T00:00:00Z] }
